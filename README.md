@@ -1,0 +1,2 @@
+# strange-cryptography-algorithm
+Nel tempo libero ho ideato questo algoritmo crittografico basato sul cifrario di cesare ma avente un approccio totalmente diverso, pur essendo fallace ed il testo semplice da decodificare una volta che lo si conosce. Ho testato l'algoritmo  su vari siti di cryptogram solving, tra cui https://www.boxentriq.com/code-breaking/cipher-identifier ed effettivamente l'algoritmo non sembra essere conosciuto, ed il messaggio rimane intatto. Tenterò in futuro di migliorarlo e di strutturarlo in modo migliore.
