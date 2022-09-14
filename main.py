@@ -5,23 +5,26 @@ def algo(lettera,chiave,azione):
         return " "
     if azione == "c":
         #la funzione ritorna la lettera crittata
-        return chr((ord(lettera)+chiave)%25+97)
+        if lettera.isupper():
+            return chr((ord(lettera)+chiave-65)%26+65)
+        else:
+            return chr((ord(lettera)+chiave-97)%26+97)
     else:
         #la funzione ritorna la lettera decrittata
-        return chr((ord(lettera)-chiave)%25+97)
+        if lettera.isupper():
+            return chr((ord(lettera)-chiave-65)%26+65)
+        else:
+            return chr((ord(lettera)-chiave-97)%26+97)
 
 def critta(frase,chiave,modalita,numero_passaggi):
     """
     La funzione prende una frase in entrata, si sceglie una chiave, la modalità (se vogliamo crittare o decrittare) ed il numero delle volte che vogliamo shiftare la chiave. 
     Se inseriamo la chiave 1 ed il numero_passaggi (chiamiamolo n) 0 l'algoritmo si comporterà come un classico cifrario di cesare, ma cambiando il parametro n ad ogni lettera la chiave cambierà, quindi alla fine avremo un algoritmo basato sull'idea del cifrario di cesare ma ogni lettera avrà una chiave diversa dalla precedente, e quindi anche avendo una chiave non potremmo decifrare tutto il testo, ma solo una o poche lettere.
-
-        
     """
     frase_finale = ""
     c = 0
     for x in frase:
         k = algo(x,(chiave+c*numero_passaggi),modalita)
-        print(ord(k))
         frase_finale+=k
         c+=1
     return frase_finale
@@ -34,8 +37,8 @@ if __name__ == '__main__':
     """
     iterazioni = 6
     chiave = 6
-    f_iniziale = "I am sleeping right now"
-    f_crittata = critta(f_iniziale,chiave,"c",iterazioni)
+    f_iniziale = "I am running from a wolf"
+    f_crittata = critta(f_iniziale,chiave,"d",iterazioni)
 
     print(f'Frase iniziale: {f_iniziale}\nFrase finale: {f_crittata}')
 
